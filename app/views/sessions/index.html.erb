@@ -1,0 +1,18 @@
+<h3>Here are the organizations you may join:</h3>
+<% @groups.each do |group|%>
+	<h2><a href='<%= group_path(group.id)%>'><%= group.name.capitalize %></a></h2>
+	<h3><%= group.description %></h3>
+	<% if group.user_id == current_user.id%>
+		<a href="<%= group_path(group.id)%>" data-method="delete">Delete Group</a>
+		<%end%>
+	<%end%>
+<div id='create'>
+<form action='<%=groups_path%>' method='post'>
+	<input type="hidden" name="authenticity_token" value='<%= form_authenticity_token%>'>
+	<label>Org Name:</label>
+	<input type="text" name="name">
+	<label>Description:</label>
+	<textarea name="description"></textarea>
+	<button type='submit'>Create</button>
+</form>
+</div>

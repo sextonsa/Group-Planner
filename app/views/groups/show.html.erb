@@ -4,10 +4,11 @@
 	<%else%>
 	<a href="/groups/new/<%= @group.id%>" data-method='post'><button>Join Group</button></a>
 <%end%>
+<div id='events'>
 <H3><%= @group.description%></H3>
-
 <h3>created by: <%= @group.user.first_name%></h3>
 <h3>Current Members: <%=@members.count%></h3>
 <% @members.each do |member|%>
 	<p><%= member.user.first_name.capitalize%></p>
 	<%end%>
+</div>

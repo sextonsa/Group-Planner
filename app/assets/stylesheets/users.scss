@@ -6,7 +6,7 @@
 }
 #login{
 	margin-left: 300px;
-	margin-top: -490px;
+	margin-top: -430px;
 	vertical-align: top;
 }
 label, input {
@@ -17,13 +17,17 @@ label, button{
 	margin: 5px;
 }
 form {
-	border: 1px solid black;
+	
 	width: 200px;
 	padding: 10px;
-	box-shadow: 0 8px 16px 0 #f48024;
+	box-shadow: 0 0px 8px 0 #f48024;
 }
 button{
 	background-color: #f48024;
 	border-radius: 4px;
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+a{
+	color: white;
+	
 }

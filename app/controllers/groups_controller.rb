@@ -15,17 +15,20 @@ class GroupsController < ApplicationController
   	@here = @members.find_by(user_id: current_user.id)
   end
   def member
-  	@member = Member.create(user_id: current_user.id, group_id: params[:id])
-  	if @member.valid?
-  		redirect_to :back
-  	else
-  		flash[:errors] = @member.errors.full_messages
-  		return redirect_to :back
-  end
-
+  	group = Group.find_by(id: params[:id])
+  	unless group.memberships.include? current_user
+	  	@member = Member.create(user_id: current_user.id, group_id: params[:id]) 
+	  	if @member.valid?
+	  		redirect_to :back
+	  	else
+	  		flash[:errors] = @member.errors.full_messages
+	  		return redirect_to :back
+	  	end
+	end
 end
 	def destroy
-		Group.find(params[:id]).destroy
+		group = Group.find(params[:id])
+		group.destroy # if group.user.id == session[:id]
 		redirect_to :back
 	end
 	def remove

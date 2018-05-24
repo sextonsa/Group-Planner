@@ -1,12 +1,15 @@
 <h3>Here are the organizations you may join:</h3>
 <% @groups.each do |group|%>
+<div id='events'.
 	<h2><a href='<%= group_path(group.id)%>'><%= group.name.capitalize %></a></h2>
 	<h3><%= group.description %></h3>
 	<% if group.user_id == current_user.id%>
 		<a href="<%= group_path(group.id)%>" data-method="delete">Delete Group</a>
 		<%end%>
+</div>	
 	<%end%>
 <div id='create'>
+	Create a New Organization!
 <form action='<%=groups_path%>' method='post'>
 	<input type="hidden" name="authenticity_token" value='<%= form_authenticity_token%>'>
 	<label>Org Name:</label>

@@ -13,7 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
 #header{
 	text-align: right;
+}
+html{
+	color: white;
+	background-image: url("https://wallpapertag.com/wallpaper/full/2/3/7/813622-background-simple-tumblr-1920x1080-screen.jpg")
 }
 
